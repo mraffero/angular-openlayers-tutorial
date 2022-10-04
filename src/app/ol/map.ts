@@ -37,7 +37,6 @@ export interface Projection {
 
 export class Map {
   public olMap: olMap;
-
   private options: MapOptions;
   private defaultOptions: Partial<MapOptions> = {  
   };
@@ -77,11 +76,11 @@ export class Map {
     });
 
     // this.olMap.addLayer(bg[1]);
-    this.olMap.getLayers().extend(bg)
+    // this.olMap.getLayers().extend(bg)
     
     // Add a new Layerswitcher to the map
     this.olMap.addControl(new LayerSwitcherImage());
-
+    return this.olMap;
   }
 
   /**

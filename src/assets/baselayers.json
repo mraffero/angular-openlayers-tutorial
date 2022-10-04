@@ -1,0 +1,55 @@
+{
+  "layers": [
+    {
+      "visible": true,
+      "baseLayer": true,
+      "sourceOptions": {
+        "matrixSet": "grid_32632_nw",
+        "maxZoom": 17,
+        "tileGrid": "customTileGrid",
+        "format": "image/png",
+        "crossOrigin": "anonymous",
+        "style": "default",
+        "projection": "EPSG:32632",
+        "type": "wmts",
+        "url": "https://geomap.reteunitaria.piemonte.it/mapproxy/service",
+        "layer": "regp_sfondo_bdtre_wmts"
+      },
+      "title": "Sfondo a colori"
+    },
+    {
+      "visible": false,
+      "baseLayer": true,
+      "sourceOptions": {
+        "matrixSet": "grid_32632_nw",
+        "maxZoom": 17,
+        "tileGrid": "customTileGrid",
+        "format": "image/png",
+        "crossOrigin": "anonymous",
+        "style": "default",
+        "projection": "EPSG:32632",
+        "type": "wmts",
+        "url": "https://geomap.reteunitaria.piemonte.it/mapproxy/service",
+        "layer": "regp_sfondo_bdtre_bn_wmts"
+      },
+      "title": "Sfondo bianco e nero"
+    },
+    {
+      "visible": false,
+      "baseLayer": true,
+      "sourceOptions": {
+        "matrixSet": "grid_32632_nw",
+        "maxZoom": 17,
+        "tileGrid": "customTileGrid",
+        "format": "image/png",
+        "crossOrigin": "anonymous",
+        "style": "default",
+        "projection": "EPSG:32632",
+        "type": "wmts",
+        "url": "https://geomap.reteunitaria.piemonte.it/mapproxy/service",
+        "layer": "rp_ortofoto_2010_wmts"
+      },
+      "title": "Ortofoto regionale"
+    }
+  ]
+}
