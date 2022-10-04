@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import Map from 'ol/Map';
+// import Map from 'ol/Map';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
+import { Map } from './ol/map';
+import { BaseLayerService } from './ol/baselayer.service';
+import { first } from 'rxjs/operators';
+import { StandardBackground } from './ol/standard-backgrounds';
 
 @Component({
   selector: 'app-root',
@@ -11,19 +15,28 @@ import OSM from 'ol/source/OSM';
 })
 export class AppComponent implements OnInit {
 
-  map: Map;
+  mapComp: any;
+  map: any;
+
+  constructor(
+    private baseLayerService: BaseLayerService,
+    // private standardBackground: StandardBackground
+
+  ){
+
+  }
 
   ngOnInit(): void {
-    this.map = new Map({
-      view: new View({
-        center: [0, 0],
-        zoom: 1,
-      }),
-      layers: [
-        new TileLayer({
-          source: new OSM(),
-        }),
-      ]
-    });
+    
+    this.mapComp = new Map();
+    this.map = this.mapComp.olMap;
+    this.baseLayerService.getBaseLayers()
+        .pipe(first())
+        .subscribe(
+          (layers: any) => {
+            const olLayers = StandardBackground.createBaseLayers(layers);
+            this.map.getLayers().extend(olLayers);
+          })
+          
   }
 }
